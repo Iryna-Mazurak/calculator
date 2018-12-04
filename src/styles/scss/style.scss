@@ -1,12 +1,66 @@
+*{
+	box-sizing: border-box;
+}
 body{
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 	h1{
 		color: red;
 	}
 	.container{
 		width: 300px;
-		height: 500px;
 		background-color: darkgoldenrod;
 		border-radius: 15px;
 		border: 3px solid #000000;
+		padding: 20px;
+		box-sizing: border-box;
+		input{
+			width: 100%;
+			height: 60px;
+			text-align: right;
+			border: none;
+			padding: 0 10px;
+			box-shadow: 0 0 15px 0 #000000;
+			font-size: 30px;
+			margin-bottom: 20px;
+			outline: none;
+			pointer-events: none;
+		}
+		.button_wrapper{
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 5px;
+			grid-auto-rows: 60px;
+			button{
+				outline: none;
+				cursor: pointer;
+				&:focus{
+					background-color: darkgray!important;
+				}
+				font-size: 20px;
+				font-weight: bold;
+				border: 2px solid grey;
+				&[value="0"]{
+					grid-column-start: 1;
+					grid-column-end: 3;
+					text-align: left;
+					padding-left: 23px;
+				}
+				&[value="/"],
+				&[value="-"],
+				&[value="+"],
+				&[value="x"],
+				&[value="="]{
+					background-color: darkorange;
+				}
+				&[value="AC"],
+				&[value="+/-"],
+				&[value="%"]{
+					background-color: slategrey;
+				}
+			}
+		}
 	}
 }
