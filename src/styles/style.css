@@ -38,7 +38,7 @@ body {
         font-weight: bold;
         border: 2px solid grey; }
         body .container .button_wrapper button:focus {
-          background-color: darkgray !important; }
+          background-color: #cccccc !important; }
         body .container .button_wrapper button[value="0"] {
           grid-column-start: 1;
           grid-column-end: 3;

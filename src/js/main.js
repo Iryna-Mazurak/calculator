@@ -11,6 +11,7 @@ let nine = document.getElementById('nine');
 let zero = document.getElementById('zero');
 let dot = document.getElementById('dot');
 let empty = document.getElementById('empty');
+let regex = /\d+\./;
 
 one.onclick = function() {addNumber(1)};
 two.onclick = function() {addNumber(2)};
@@ -26,9 +27,17 @@ dot.onclick = function() {addNumber('.')};
 
 function addNumber(number) {
 	let value = number;
-	if (display.value === '0'){
+	if ((display.value === '0') && (number === '.')) {
+		display.setAttribute('value', '0.');
+	} else if (display.value === '0'){
 		display.setAttribute('value', value);
+	} else if ((number === '.') && (regex.test(display.value) === true)) {
+		display.setAttribute('value', display.value);
 	} else {
 		display.setAttribute('value', display.value + value);
 	}
 }
+
+empty.onclick = function () {
+	display.setAttribute('value', '0');
+};
