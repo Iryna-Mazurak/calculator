@@ -11,6 +11,7 @@ let nine = document.getElementById('nine');
 let zero = document.getElementById('zero');
 let dot = document.getElementById('dot');
 let empty = document.getElementById('empty');
+let plus = document.querySelector('#plus');
 let regex = /\d+\./;
 
 one.onclick = function() {addNumber(1)};
@@ -40,4 +41,8 @@ function addNumber(number) {
 
 empty.onclick = function () {
 	display.setAttribute('value', '0');
+};
+
+plus.onclick = function () {
+	display.setAttribute('value', 'plus');
 };

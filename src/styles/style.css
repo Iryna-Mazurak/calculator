@@ -7,7 +7,7 @@ body {
   align-items: center;
   flex-direction: column; }
   body h1 {
-    color: red; }
+    color: #000; }
   body .container {
     width: 300px;
     background-color: darkgoldenrod;
