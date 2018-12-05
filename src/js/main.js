@@ -1,4 +1,4 @@
-let display = document.querySelector('#display');
+let display_input = document.querySelector('#display');
 let one = document.getElementById('one');
 let two = document.getElementById('two');
 let three = document.getElementById('three');
@@ -12,6 +12,8 @@ let zero = document.getElementById('zero');
 let dot = document.getElementById('dot');
 let empty = document.getElementById('empty');
 let plus = document.querySelector('#plus');
+let plus_minus = document.querySelector('#plus_minus');
+let percentage = document.querySelector('#percentage');
 let regex = /\d+\./;
 
 one.onclick = function() {addNumber(1)};
@@ -28,21 +30,35 @@ dot.onclick = function() {addNumber('.')};
 
 function addNumber(number) {
 	let value = number;
-	if ((display.value === '0') && (number === '.')) {
-		display.setAttribute('value', '0.');
-	} else if (display.value === '0'){
-		display.setAttribute('value', value);
-	} else if ((number === '.') && (regex.test(display.value) === true)) {
-		display.setAttribute('value', display.value);
+	if ((display_input.value === '0') && (number === '.')) {
+		display_input.setAttribute('value', '0.');
+	} else if (display_input.value === '0'){
+		display_input.setAttribute('value', value);
+	} else if ((number === '.') && (regex.test(display_input.value) === true)) {
+		display_input.setAttribute('value', display_input.value);
 	} else {
-		display.setAttribute('value', display.value + value);
+		display_input.setAttribute('value', display_input.value + value);
 	}
 }
 
 empty.onclick = function () {
-	display.setAttribute('value', '0');
+	display_input.setAttribute('value', '0');
 };
 
-plus.onclick = function () {
-	display.setAttribute('value', 'plus');
+plus_minus.onclick = function () {
+	if ((display_input.value !== '0') && (display_input.value !== '0.')){
+		if (display_input.value[0] !== '-') {
+			display_input.setAttribute('value', '-' + display_input.value);
+		} else {
+			let display_value = document.querySelector('#display').value;
+			let a = display_value.substr(1);
+			display_input.setAttribute('value', a);
+		}
+	}
 };
+
+// percentage.onclick = function () {
+// 	if ((display_input.value !== '0') && (display_input.value !== '0.')){
+//
+// 	}
+// };
