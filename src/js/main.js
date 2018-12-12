@@ -12,9 +12,14 @@ let zero = document.getElementById('zero');
 let dot = document.getElementById('dot');
 let empty = document.getElementById('empty');
 let plus = document.querySelector('#plus');
+let minus = document.querySelector('#minus');
+let multiplication = document.querySelector('#multiplication');
+let division = document.querySelector('#division');
 let plus_minus = document.querySelector('#plus_minus');
 let percentage = document.querySelector('#percentage');
 let regex = /\d+\./;
+let equally = document.querySelector('#equally');
+let result = 0;
 
 one.onclick = function() {addNumber(1)};
 two.onclick = function() {addNumber(2)};
@@ -27,6 +32,10 @@ eight.onclick = function() {addNumber(8)};
 nine.onclick = function() {addNumber(9)};
 zero.onclick = function() {addNumber(0)};
 dot.onclick = function() {addNumber('.')};
+plus.onclick = function() {addNumber(' + ')};
+minus.onclick = function() {addNumber(' - ')};
+multiplication.onclick = function() {addNumber(' * ')};
+division.onclick = function() {addNumber(' / ')};
 
 function addNumber(number) {
 	let value = number;
@@ -34,10 +43,14 @@ function addNumber(number) {
 		display_input.setAttribute('value', '0.');
 	} else if (display_input.value === '0'){
 		display_input.setAttribute('value', value);
+		result = value;
+		console.log(result);
 	} else if ((number === '.') && (regex.test(display_input.value) === true)) {
 		display_input.setAttribute('value', display_input.value);
 	} else {
 		display_input.setAttribute('value', display_input.value + value);
+		result += value.toString();
+		console.log(result);
 	}
 }
 
@@ -57,8 +70,16 @@ plus_minus.onclick = function () {
 	}
 };
 
-// percentage.onclick = function () {
-// 	if ((display_input.value !== '0') && (display_input.value !== '0.')){
-//
-// 	}
-// };
+equally.onclick = function () {
+	let final_result = eval(result);
+	// console.log(splited_result);
+	// for (let i = 0; i < splited_result.length; i++) {
+	// 	if ((/\d+/.test(splited_result[i])) === true){
+	// 		final_result.push(parseInt(splited_result[i]));
+	// 	} else {
+	// 		final_result.push(splited_result[i]);
+	// 	}
+	// 	console.log(final_result);
+	// }
+	display_input.setAttribute('value', final_result);
+};

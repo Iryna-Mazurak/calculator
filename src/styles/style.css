@@ -44,7 +44,7 @@ body {
           grid-column-end: 3;
           text-align: left;
           padding-left: 23px; }
-        body .container .button_wrapper button[value="/"], body .container .button_wrapper button[value="-"], body .container .button_wrapper button[value="+"], body .container .button_wrapper button[value="x"], body .container .button_wrapper button[value="="] {
+        body .container .button_wrapper button[value="/"], body .container .button_wrapper button[value="-"], body .container .button_wrapper button[value="+"], body .container .button_wrapper button[value="*"], body .container .button_wrapper button[value="="] {
           background-color: darkorange; }
         body .container .button_wrapper button[value="AC"], body .container .button_wrapper button[value="+/-"], body .container .button_wrapper button[value="%"] {
           background-color: slategrey; }
